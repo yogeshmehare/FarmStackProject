@@ -11,11 +11,6 @@ student_router = APIRouter()
 async def findAllStudents():
     return listOfStudentEntities(connection.local.student.find())
 
-
-@student_router.get('/hello')
-async def printHello():
-    return 'Hello'
-
 @student_router.post('/students')
 async def insertStudent(stud : Student):
     connection.local.student.insert_one(dict(stud))
